@@ -17,33 +17,22 @@ Route::middleware('auth:api')->get('/in',function (Request $request){
 
 });
 
-Route::get("upload",function (){
-   return view("UploadExcel");
-});
-
-
-Route::get('export', [\App\Http\Controllers\ImportExportController::class ,'export'])->name('export');
-Route::get('importExportView', [\App\Http\Controllers\ImportExportController::class ,'importExportView']);
-Route::post('import', [\App\Http\Controllers\ImportExportController::class ,'import'])->name('import');
-
-Route::get('/', function () {
-//    return "{}";
-    return view('LoginScreen');
-});
+Route::get('/', [\App\Http\Controllers\LoginController::class,'show']);
 
 Route::get('register',[\App\Http\Controllers\RegisterController::class,'register']);
 Route::post('registerUser',[\App\Http\Controllers\RegisterController::class,'registerUser']);
 
+Route::get('login',[\App\Http\Controllers\LoginController::class,'show'])->name('login');
 Route::post('login',[\App\Http\Controllers\LoginController::class,'login']);
 Route::post("saveData",[\App\Http\Controllers\SubmitController::class,'getData']);
 
-Route::name('home')->get('home',function (){
-    return "{}";
-})->name('home');
+Route::get('logout',[\App\Http\Controllers\LoginController::class,'logout'])->name('logout');
 
-Route::get("home",[ 'as' => 'home', function (){
-   return "Home";
-}]);
+/*Route::name('home')->get('home',function (){
+    return "{}";
+})->name('home');*/
+
+Route::get("home",[ \App\Http\Controllers\HomeController::class,'home' ])->middleware('auth');
 
 Route::get("/ss/{name}",function ($name){
     if(DB::connection()->getDatabaseName())
@@ -61,7 +50,7 @@ Route::get("user/{id}",[UserController::class,'show']);
 Route::group(['middleware' =>['protected-k'] ],function (){
     Route::view("s","first");
     Route::view('noaccess','noaccess');
-    Route::view('home','home');
+    //Route::view('home','home');
 });
 
 

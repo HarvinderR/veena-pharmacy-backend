@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Artisan;
 
 class LoginController extends Controller
 {
+    function show(){
+        if(auth()->user()!=null){
+//            Artisan::call('route:clear');
+            return redirect('home');
+        }else{
+            return view('LoginScreen');
+        }
+    }
+
     //
     function login(Request $request){
         $input = $request->all();
@@ -24,8 +33,11 @@ class LoginController extends Controller
         }else{
             return redirect()->back()->withErrors(['Invalid username or password']);
         }
+    }
 
-
-        return $request;
+    function logout(){
+        auth()->logout();
+        Artisan::call('route:clear');
+        return redirect('login');
     }
 }
