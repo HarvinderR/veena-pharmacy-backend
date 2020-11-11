@@ -21,7 +21,7 @@
                 <div class="card-body  align-self-center my-auto">
                     <h5 class="card-title">Upload product</h5>
                     <p class="card-text">You can upload all of the products by uploading the sheet.</p>
-                    <a href="#" class="btn btn-primary">Upload products</a>
+                    <a href="{{ url("uploadProducts") }}" class="btn btn-primary">Upload products</a>
                 </div>
             </div>
         </div>

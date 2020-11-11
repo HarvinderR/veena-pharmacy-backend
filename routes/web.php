@@ -32,7 +32,14 @@ Route::get('logout',[\App\Http\Controllers\LoginController::class,'logout'])->na
     return "{}";
 })->name('home');*/
 
-Route::get("home",[ \App\Http\Controllers\HomeController::class,'home' ])->middleware('auth');
+Route::middleware('auth')->group(function (){
+    Route::get("home",[ \App\Http\Controllers\HomeController::class,'home' ])->middleware('auth');
+    Route::get("uploadProducts",[ \App\Http\Controllers\HomeController::class,'uploadProducts' ]);
+    Route::post("uploadProductsPost",[ \App\Http\Controllers\HomeController::class,'postUploadProducts' ])
+        ->name('uploadProductsPost')
+        ->middleware(\App\Http\Middleware\ExcelImportProcessMiddleware::class);
+});
+
 
 Route::get("/ss/{name}",function ($name){
     if(DB::connection()->getDatabaseName())
