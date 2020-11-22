@@ -37,3 +37,19 @@ Route::post('test',function(Request $request){
 Route::get('/',function (){
     return response(array());
 });
+
+Route::post('/user_login',function(Request $request){
+    if($request->username == 'harvinder' && $request->password == '123'){
+        $a = [];
+        $a['response'] = 'success';
+        $a['msg'] = '';
+        $a['data'] = array('name'=>'Harvinder Singh','gender'=>'male','phone'=>'8750240789');
+        return $a;
+    }
+    $a =[];
+    $a['response'] = 'fail';
+    $a['msg'] = 'fail';
+    $a['data'] = null;
+
+    return $a;
+});
