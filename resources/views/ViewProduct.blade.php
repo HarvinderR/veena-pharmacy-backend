@@ -6,6 +6,44 @@
 
 @section('content')
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id = "editProductItem">
+                        <input type="hidden" id="recipient-id" >
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Salt:</label>
+                            <input type="text" class="form-control" id="recipient-salt">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="recipient-price">
+                        </div>
+                    </form>
+                    <div class="alert alert-danger" style="display: none" id="productItemFail">
+                        Failed to submit data
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id = "saveProductItem">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-5">
         <table class="table table-bordered table-striped  table-dark table-sm">
             <thead>
@@ -53,20 +91,67 @@
         function myFunction(value, index, array) {
             //console.log(value)
             txt =
-                "<tr>"+
+                "<tr id = 'r-"+value['id']+"'>"+
                 "<th scope='row'>"+value['id']+"</th>"
                 +"<td>"+value['name']+"</td>"
                 +"<td>"+value['salt']+"</td>"
                 +"<td>"+value['price']+"</td>"
                 +"<td><a href='"+value['img']+"' target='_blank'>"+value['img']+"</a> </td>"
-                +"<td><p onclick=\"log([\""+value['id']+"\",\""+value['name']+"\",\""+value['salt']+"\"])\">Edit</p><p>Delete</p></td>"
+                +"<td><p onclick=\"log("+value['id']+")\">Edit</p><p>Delete</p></td>"
                 +"</tr>";
             $("#tbodyid").append(txt)
         }
 
+        $("#saveProductItem").click(function () {
+            $("#saveProductItem").attr('disabled',true);
+            var sub = {"id": $("#recipient-id").attr("myData"),
+                "name":$("#recipient-name").val(),
+                "salt":$("#recipient-salt").val(),
+                "price":$("#recipient-price").val(),
+            };
+            axios({
+                method:'post',
+                url:"editProductItem",
+                data:sub
+            }).then((response) => {
+                console.log("success");
+                console.log(response);
+                //$("#saveProductItem").attr('disabled',false);
+                updateProductItemData(sub);
+                $('#productItemFail').hide()
+                $('#exampleModal').modal('hide')
+            }, (error) => {
+                $("#saveProductItem").attr('disabled',false);
+                console.log("error");
+                console.log(error);
+                $('#productItemFail').show()
+            });
+            console.log(sub);
+        });
+        function updateProductItemData(data){
+            var d = a[data['id']];
+            d['name']=data['name'];
+            d['salt']=data['salt'];
+            d['price']=data['price'];
+            a[data['id']]=d;
+            itemData = $( "#r-"+data['id'])
+            itemData.children().eq(1).text(data['name'])
+            itemData.children().eq(2).text(data['salt'])
+            itemData.children().eq(3).text(data['price'])
+            console.log(itemData);
+        }
 
-        function log(a){
-            console.log(a)
+        function log(aa){
+            $('#exampleModal').modal('show')
+            v = a[aa];
+            console.log(v);
+            $('#productItemFail').hide()
+            $("#saveProductItem").attr('disabled',false);
+            $("#recipient-id").attr("myData", v['id'])//recipient-price
+            $("#recipient-name").val(v['name'])//recipient-price
+            $("#recipient-salt").val(v['salt'])//recipient-price
+            $("#recipient-price").val(v['price'])//recipient-price
+            console.log(aa)
         }
     </script>
 @endsection

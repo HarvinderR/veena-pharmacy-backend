@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ProductsImport;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\Process\Process;
@@ -16,6 +17,15 @@ class HomeController extends Controller
 
     function uploadProducts(){
         return view('uploadProducts');
+    }
+
+    function editProductItem(Request $request){
+        $product = Product::where('id',$request->id)->first();
+        $product->name = $request->name;
+        $product->salt = $request->salt;
+        $product->price = $request->price;
+        $product->save();
+        return $request -> all();
     }
 
     function viewProducts(){
