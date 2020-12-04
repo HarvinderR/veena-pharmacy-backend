@@ -1,0 +1,23 @@
+
+.product-row[type=text]:enabled{
+    border: none;
+    background-color: white;
+    color: black;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.product-row[type=text]:disabled{
+    border: none;
+    background-color: transparent;
+    color: white;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+}
+.product-row::-webkit-scrollbar {
+    display: none;
+}
+.bulkSubmit{
+    display: none;
+}
+

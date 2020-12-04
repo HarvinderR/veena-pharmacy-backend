@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a122df0-d555-4760-a1d9-c62f1c5a6b8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/view-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ViewProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ViewProduct.blade.php" afterDir="false" />
@@ -21,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="blade" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -36,7 +37,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpDebugGeneral" listening_started="true" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="24250766-11fe-493c-b35a-7de76919675a" name="localhost" port="8000" />
@@ -219,7 +220,8 @@
       <workItem from="1604483795633" duration="598000" />
       <workItem from="1605057736757" duration="9029000" />
       <workItem from="1605074424250" duration="202000" />
-      <workItem from="1606932454102" duration="29191000" />
+      <workItem from="1606932454102" duration="29940000" />
+      <workItem from="1607056444224" duration="9495000" />
     </task>
     <servers />
   </component>
@@ -364,6 +366,16 @@
           <url>file://$PROJECT_DIR$/resources/views/uploadProducts.blade.php</url>
           <line>65</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/ViewProduct.blade.php</url>
+          <line>189</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/ViewProduct.blade.php</url>
+          <line>179</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

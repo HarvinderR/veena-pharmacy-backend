@@ -28,6 +28,18 @@ class HomeController extends Controller
         return $request -> all();
     }
 
+    function bulkProductItem(Request $request){
+        $data = $request->data;
+        foreach ($data as $value){
+            $product = Product::where('id',$value['id'])->first();
+            $product->name = $value['name'];
+            $product->salt = $value['salt'];
+            $product->price = $value['price'];
+            $product->save();
+        }
+        return $data;
+    }
+
     function viewProducts(){
         $product = \App\Models\Product::paginate(15);
         return view('ViewProduct',compact('product')  );

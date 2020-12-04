@@ -44,6 +44,9 @@
         </div>
     </div>
 
+    <button type="button" class="btn btn-primary editMode" data-editMode="false" onclick="changeEditMode()" >Edit</button>
+    <button type="button" class="btn btn-primary bulkSubmit" data-editMode="false" onclick="submitBulkChanges()" >Submit bulk changes</button>
+
     <div class="container mt-5">
         <table class="table table-bordered table-striped  table-dark table-sm">
             <thead>
@@ -70,8 +73,10 @@
 @endsection
 
 @section('script')
+    <link rel="stylesheet" href="{{ asset('css/view-product.css') }}">
     <script >
         var a = [];
+        var editMode = false;
         @foreach($product as $data)
             var d =[];
             d['id'] = {{$data->id}};
@@ -92,10 +97,10 @@
             //console.log(value)
             txt =
                 "<tr id = 'r-"+value['id']+"'>"+
-                "<th scope='row'>"+value['id']+"</th>"
-                +"<td>"+value['name']+"</td>"
-                +"<td>"+value['salt']+"</td>"
-                +"<td>"+value['price']+"</td>"
+                "<td scope='row'>"+value['id']+"</td>"
+                +"<td><textarea rows = \"3\" class = 'product-row' type ='text' disabled='true'> "+value['name']+"</textarea></td>"
+                +"<td><textarea rows = \"3\" class = 'product-row' type ='text' disabled='true'>"+value['salt']+"</textarea></td>"
+                +"<td><textarea rows = \"3\" class = 'product-row' type ='text' disabled='true'>"+value['price']+"</textarea></td>"
                 +"<td><a href='"+value['img']+"' target='_blank'>"+value['img']+"</a> </td>"
                 +"<td><p onclick=\"log("+value['id']+")\">Edit</p><p>Delete</p></td>"
                 +"</tr>";
@@ -139,6 +144,72 @@
             itemData.children().eq(2).text(data['salt'])
             itemData.children().eq(3).text(data['price'])
             console.log(itemData);
+        }
+
+        function changeEditMode() {
+            console.log("changeEditMode "+$(".editMode").text())
+            if($(".editMode").text() == 'Edit'){
+                $(".editMode").text("View");
+                $(".product-row").attr('disabled',false);
+                $(".bulkSubmit").show()
+            }else{
+                $(".editMode").text("Edit")
+                $(".product-row").attr('disabled',true);
+                $(".bulkSubmit").hide()
+                resetOrSave(true)
+            }
+        }
+
+        function submitBulkChanges(){
+            ret = {"data":resetOrSave(false)};
+            axios({
+                method:'post',
+                url:"bulkProductItem",
+                data:ret
+            }).then((response) => {
+                console.log("success");
+                console.log(response);
+            }, (error) => {
+                console.log("error");
+                console.log(error);
+            });
+
+            console.log(ret)
+        }
+        function resetOrSave(isReset){
+            var ite = $("#tbodyid").find("tr")
+            var ret = [];
+            for (i =0 ; i<ite.length;i++){
+                var id = ite[i].childNodes[0].innerText;
+                var ss = a[id];
+                if(isReset){
+                    ite[i].childNodes[1].childNodes[0].value = ss['name'];
+                    ite[i].childNodes[2].childNodes[0].value = ss['salt'];
+                    ite[i].childNodes[3].childNodes[0].value = ss['price'];
+                }else{
+                    var name = ite[i].childNodes[1].childNodes[0].value;
+                    var salt = ite[i].childNodes[2].childNodes[0].value;
+                    var price = ite[i].childNodes[3].childNodes[0].value;
+                    var v = { "id":id,"name":name,"salt":salt,"price":price }
+                    console.log(name);
+                    console.log(ss['name']);
+                    if(name.trim() == ss['name'].trim()){
+                        console.log("name is same")
+                    }
+
+                    if( name.trim() == ss['name'].trim() && salt.trim() == ss['salt'].trim() && price.trim() == ss['price'].trim() ){
+                        console.log("Skip")
+                    }else{
+                        ret.push(v)
+                    }
+
+                    console.log(id);
+                    console.log(name);
+                    console.log("salt"+salt);
+                    console.log("price "+price);
+                }
+            }
+            return ret;
         }
 
         function log(aa){
