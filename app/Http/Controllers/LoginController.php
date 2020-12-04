@@ -12,7 +12,7 @@ class LoginController extends Controller
 //            Artisan::call('route:clear');
             return redirect('home');
         }else{
-            return view('LoginScreen');
+            return \response()->view('LoginScreen')->header('Cache-Control', 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         }
     }
 

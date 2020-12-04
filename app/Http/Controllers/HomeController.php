@@ -18,6 +18,11 @@ class HomeController extends Controller
         return view('uploadProducts');
     }
 
+    function viewProducts(){
+        $product = \App\Models\Product::paginate(15);
+        return view('ViewProduct',compact('product')  );
+    }
+
     function postUploadProducts(Request $request){
         $request->validate([
             'file' => 'required|file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',

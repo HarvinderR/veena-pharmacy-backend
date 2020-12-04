@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a122df0-d555-4760-a1d9-c62f1c5a6b8f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/ViewProduct.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/include/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/include/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="blade" />
         <option value="JavaScript File" />
+        <option value="blade" />
       </list>
     </option>
   </component>
@@ -216,6 +222,7 @@
       <workItem from="1604483795633" duration="598000" />
       <workItem from="1605057736757" duration="9029000" />
       <workItem from="1605074424250" duration="202000" />
+      <workItem from="1606932454102" duration="17427000" />
     </task>
     <servers />
   </component>
@@ -311,22 +318,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1605074480467" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1605074425681">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1606932464732">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1605074425681" />
-    <state x="675" y="72" width="586" height="488" key="find.popup" timestamp="1605062550314">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1606932464732" />
+    <state x="675" y="72" width="586" height="488" key="find.popup" timestamp="1606972091991">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="675" y="72" width="586" height="488" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1605062550314" />
+    <state x="675" y="72" width="586" height="488" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1606972091991" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1604996983603">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1604996983603" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1605062489974">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606972096491">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1605062489974" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606972096491" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -345,16 +352,6 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ImportExportController.php</url>
           <line>22</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/LoginController.php</url>
-          <line>20</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/LoginController.php</url>
-          <line>10</line>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Imports/ProductsImport.php</url>

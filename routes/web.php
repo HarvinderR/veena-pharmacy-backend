@@ -35,6 +35,7 @@ Route::get('logout',[\App\Http\Controllers\LoginController::class,'logout'])->na
 Route::middleware('auth')->group(function (){
     Route::get("home",[ \App\Http\Controllers\HomeController::class,'home' ])->middleware('auth');
     Route::get("uploadProducts",[ \App\Http\Controllers\HomeController::class,'uploadProducts' ]);
+    Route::get("viewProducts",[ \App\Http\Controllers\HomeController::class,'viewProducts' ]);
     Route::post("uploadProductsPost",[ \App\Http\Controllers\HomeController::class,'postUploadProducts' ])
         ->name('uploadProductsPost')
         ->middleware(\App\Http\Middleware\ExcelImportProcessMiddleware::class);

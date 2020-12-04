@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">View product</h5>
                     <p class="card-text">You can view all of the products that is uploaded last.</p>
-                    <a href="#" class="btn btn-primary">View products</a>
+                    <a href="{{url("viewProducts")}}" class="btn btn-primary">View products</a>
                 </div>
             </div>
         </div>
@@ -26,4 +26,7 @@
             </div>
         </div>
     </div>
+
 @endsection
+
+
