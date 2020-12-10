@@ -1,0 +1,31 @@
+.product-items{
+
+}
+
+#myInput{
+    width: 100%;
+}
+
+.add-product{
+    margin: 0px;
+    font-weight: bold;
+}
+
+.autocomplete-items{
+    background-color: #cccccc;
+    margin-top: 1px;
+}
+.autocomplete-item{
+    background-color: white;
+    margin-bottom: 2px;
+}
+.autocomplete-item:hover{
+    background-color: aquamarine;
+    cursor:pointer;
+    margin-bottom: 2px;
+}
+
+#product-list{
+    width: 600px;
+    background-color: antiquewhite;
+}

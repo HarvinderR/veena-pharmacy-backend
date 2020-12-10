@@ -25,6 +25,8 @@ Route::get('apilogin',function (){
 
 Route::post('uploadFile',[ \App\Http\Controllers\FileUploadController::class,'fileUploadPost' ]);
 
+Route::get('fetchItems',[ \App\Http\Controllers\ApiController::class,'fetchItems']);
+
 Route::get('test',function(Request $request){
     return $request -> all();
 });

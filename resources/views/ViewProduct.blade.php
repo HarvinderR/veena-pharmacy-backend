@@ -44,10 +44,11 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-primary editMode" data-editMode="false" onclick="changeEditMode()" >Edit</button>
-    <button type="button" class="btn btn-primary bulkSubmit" data-editMode="false" onclick="submitBulkChanges()" >Submit bulk changes</button>
 
     <div class="container mt-5">
+        <button type="button" class="btn btn-primary editMode" data-editMode="false" onclick="changeEditMode()" >Edit</button>
+        <button type="button" class="btn btn-primary bulkSubmit" data-editMode="false" onclick="submitBulkChanges()" >Submit bulk changes</button>
+        <div style="height: 10px"></div>
         <table class="table table-bordered table-striped  table-dark table-sm">
             <thead>
             <tr class="table-info">

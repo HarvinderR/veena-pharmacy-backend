@@ -6,6 +6,12 @@
 
 @section('content')
     <div class="row" style="margin-top: 20px">
+        <div class="col d-flex justify-content-between">
+            <a class="btn btn-primary" href="{{url("createCategory")}}" role="button">Create Category</a>
+            <a  class="btn btn-primary editMode" href="viewCategory" >View All category</a>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
         <div class="col d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -22,6 +28,26 @@
                     <h5 class="card-title">Upload product</h5>
                     <p class="card-text">You can upload all of the products by uploading the sheet.</p>
                     <a href="{{ url("uploadProducts") }}" class="btn btn-primary">Upload products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Create Category</h5>
+                    <p class="card-text">You can create the category.</p>
+                    <a href="{{url("createCategory")}}" class="btn btn-primary">Create Category</a>
+                </div>
+            </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Create Category</h5>
+                    <p class="card-text">You can view all the category.</p>
+                    <a href="{{url("viewCategory")}}" class="btn btn-primary">View All Category</a>
                 </div>
             </div>
         </div>

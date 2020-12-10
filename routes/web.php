@@ -32,12 +32,20 @@ Route::get('logout',[\App\Http\Controllers\LoginController::class,'logout'])->na
     return "{}";
 })->name('home');*/
 
+
 Route::middleware('auth')->group(function (){
     Route::get("home",[ \App\Http\Controllers\HomeController::class,'home' ])->middleware('auth');
     Route::get("uploadProducts",[ \App\Http\Controllers\HomeController::class,'uploadProducts' ]);
     Route::get("viewProducts",[ \App\Http\Controllers\HomeController::class,'viewProducts' ]);
     Route::post("editProductItem",[ \App\Http\Controllers\HomeController::class,'editProductItem']);
     Route::post("bulkProductItem",[ \App\Http\Controllers\HomeController::class,'bulkProductItem']);
+    Route::get("viewCategory",[ \App\Http\Controllers\HomeController::class,'viewCategory']);
+    Route::get("createCategory",[ \App\Http\Controllers\HomeController::class,'createCategory']);
+    Route::get("getAllCategories",[ \App\Http\Controllers\HomeController::class,'getAllCategories']);
+    Route::post("getProductsByCat",[ \App\Http\Controllers\HomeController::class,'getProductsByCat']);
+    Route::post("deleteCat",[ \App\Http\Controllers\HomeController::class,'deleteCat']);
+    Route::post("saveCategory",[ \App\Http\Controllers\HomeController::class,'saveCategory']);
+    Route::post("searchProducts",[\App\Http\Controllers\HomeController::class,'searchProducts']);
     Route::post("uploadProductsPost",[ \App\Http\Controllers\HomeController::class,'postUploadProducts' ])
         ->name('uploadProductsPost')
         ->middleware(\App\Http\Middleware\ExcelImportProcessMiddleware::class);
