@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <a  class="btn btn-primary editMode" href="{{url("createCategory")}}" style="margin-top: 5px;margin-bottom: 5px" >Create Category</a>
     <!-- Modal -->
     <div class="modal fade" id="showProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

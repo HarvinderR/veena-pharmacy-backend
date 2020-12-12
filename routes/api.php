@@ -18,6 +18,19 @@ Route::middleware('auth.api:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth.api:api')->group(function (){
+    Route::get('/show_user',[\App\Http\Controllers\ApiController::class,'show_user']);
+});
+Route::get('fetch_category',[\App\Http\Controllers\ApiController::class,'fetch_category']);
+
+Route::get('deleteCartItem',[\App\Http\Controllers\ApiController::class,'deleteCartItem']);
+Route::get('deleteCart',[\App\Http\Controllers\ApiController::class,'deleteCart']);
+Route::get('createCartItem',[\App\Http\Controllers\ApiController::class,'createCartItem']);
+Route::get('createCart',[\App\Http\Controllers\ApiController::class,'createCart']);
+
+Route::post('saveCustomer',[\App\Http\Controllers\ApiController::class,'createUser']);
+Route::get('login',[\App\Http\Controllers\ApiController::class,'login']);
+
 Route::get('apilogin',function (){
     $obj = ['data'=>'','response'=>'200','error'=>'login required'];
     return response($obj,201);

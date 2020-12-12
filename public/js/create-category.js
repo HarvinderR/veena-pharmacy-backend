@@ -33,7 +33,7 @@ function searchProduct(txt) {
 
                 response['data'].forEach( it => {
                     //console.log(it['name'])
-                    b = addDropdownItems( it['id']+"",it['name']+"")
+                    b = addDropdownItems( it['id']+"",it['name']+"",it['salt'])
                     if(b != null || b != undefined){
                         a.appendChild(b);
                         $(".autocomplete").append(a)
@@ -58,25 +58,32 @@ function searchProduct(txt) {
         )
     }
 }
-function addDropdownItems(id,name) {
+function addDropdownItems(id,name,salt) {
     // console.log("check1")
     // console.log(typeof id)
     // console.log(typeof name)
     if ((typeof id === 'string' || id instanceof String)&&(typeof name === 'string' || name instanceof String)){
+        var parentDiv = document.createElement("DIV");
+        parentDiv.setAttribute("class", "autocomplete-item")
         // console.log("check2")
         /*var a = document.createElement("DIV");
         a.setAttribute("id", id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");*/
         /*create a DIV element for each matching element:*/
         var b = document.createElement("DIV");
-        b.setAttribute("class", "autocomplete-item")
         /*make the matching letters bold:*/
         //b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
         b.innerHTML += name;
         /*insert a input field that will hold the current array item's value:*/
         b.innerHTML += "<input type='hidden' value='" + id + "'>";
+
+        var pSalt = document.createElement("p");
+        pSalt.setAttribute("class", "autocomplete-item-salt")
+        pSalt.innerText+=salt
+        parentDiv.append(b)
+        parentDiv.append(pSalt)
         /*execute a function when someone clicks on the item value (DIV element):*/
-        b.addEventListener("click", function(e) {
+        parentDiv.addEventListener("click", function(e) {
             /*insert the value for the autocomplete text field:*/
             addProductItem(id,name)
             // $('#myInput').val(name);
@@ -85,7 +92,7 @@ function addDropdownItems(id,name) {
             (or any other open lists of autocompleted values:*/
             //closeAllLists();
         });
-        return b;
+        return parentDiv;
     }
     return null;
 }
@@ -151,6 +158,10 @@ function saveCategory() {
     /*testApi()
     return*/
     if(isSaving){
+        return
+    }
+    if(product_item.length<1){
+        alert("Please add products")
         return
     }
     isSaving=true
