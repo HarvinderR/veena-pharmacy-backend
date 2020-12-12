@@ -63,9 +63,9 @@ class HomeController extends Controller
     function searchProducts(Request $request){
         $data = $request->get('data');
 
-        $products = Product::select('id','name')->where('name', 'like', "%{$data}%")
+        $products = Product::select('id','name','salt')->where('name', 'like', "%{$data}%")
             ->orWhere('salt', 'like', "%{$data}%")
-            ->take(5)
+            ->take(15)
             ->get();
         return $products;
     }

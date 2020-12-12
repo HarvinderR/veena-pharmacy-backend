@@ -19,7 +19,7 @@
         <h2>Veena Pharmacy</h2>
         <div class="txt-item"><input  type="text" placeholder="Enter username" name="name" ></div>
         <br>
-        <div class="txt-item"><input  type="text" placeholder="Enter password" name="password"></div>
+        <div class="txt-item"><input style="width: 100%" type="password" placeholder="Enter password" name="password"></div>
         <br>
         <div class="btn-item"><input  type="submit" value="Login"></div>
         <a style="color: blue; text-align: end; padding-right: 5px;display: block" href="{{url('register')}}"  >Register</a>
